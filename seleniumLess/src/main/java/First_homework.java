@@ -93,6 +93,44 @@ public class First_homework {
         driver.findElement(By.xpath("//*[@id=\"sidebar\"]/div[2]/a[5]")).click();
     }
 
+    @Test
+    public void checkStickersMainPage(){
+        //LogIn
+        driver.get("http://localhost/litecard/admin/");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+
+        //Find and check productBox
+        driver.get("http://localhost/litecard/en/");
+        List<WebElement> productBox = driver.findElements(By.cssSelector("div.box"));
+         //System.out.println(" - countProductBox - " + productBox.size());
+
+        for (int i = 1; i <= productBox.size(); i++){
+
+          //  System.out.println(" - NumberBroductBox - " + i);
+
+            int countUl = driver.findElements(By.cssSelector("div.box:nth-of-type(" + i + ") ul.products")).size();
+            if (countUl > 0) {
+
+                //check subItems if exists
+                List<WebElement> listProductItem = driver.findElements(By.cssSelector("div.box:nth-of-type(" + i + ") li"));
+                if (listProductItem.size() != 0) {
+                //System.out.println(" - subItemsCount - " + listProductItem.size());
+                    for (int j = 1; j <= listProductItem.size(); j++) {
+                        int stickersCount = driver.findElements(By.cssSelector("div.box:nth-of-type(" + i + ") li:nth-of-type(" + j + ") div[class ^=sticker]")).size();
+                      //  System.out.println( "ClickMenutopItem - " + i + " - ClickSubItemNumber - " + j);
+                        Assert.assertTrue("Продукт без стикера", stickersCount == 1);
+
+                    }
+                }
+            }
+        }
+
+    }
+
+
+
     @After
     public void tear_down(){
        driver.quit();
