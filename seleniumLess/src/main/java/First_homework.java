@@ -7,9 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -216,6 +214,61 @@ public class First_homework {
         Collections.sort(sortedListZones);
 
         Assert.assertEquals("Зоны не отсортированы по алфавиту", zonesNameList, sortedListZones);
+
+    }
+
+    @Test
+    public void checkProductsStyles(){
+
+        //Find and check productBox
+        driver.get("http://localhost/litecard/en/");
+        Map<String,String> itemFromMainPage = new HashMap<>();
+        WebElement we =  driver.findElement(By.cssSelector("div#box-campaigns li:first-child"));
+        itemFromMainPage.put("regular-price-tag", we.findElement(By.cssSelector(".regular-price")).getTagName());
+        itemFromMainPage.put("regular-price", we.findElement(By.cssSelector(".regular-price")).getText());
+        itemFromMainPage.put("regular-price-color", we.findElement(By.cssSelector(".regular-price")).getCssValue("color"));
+        itemFromMainPage.put("regular-price-font-size", we.findElement(By.cssSelector(".regular-price")).getCssValue("font-size").replace("px",""));
+        itemFromMainPage.put("campaign-price-tag", we.findElement(By.cssSelector(".campaign-price")).getTagName());
+        itemFromMainPage.put("campaign-price", we.findElement(By.cssSelector(".campaign-price")).getText());
+        itemFromMainPage.put("campaign-price-color", we.findElement(By.cssSelector(".campaign-price")).getCssValue("color"));
+        itemFromMainPage.put("campaign-price-font-size", we.findElement(By.cssSelector(".campaign-price")).getCssValue("font-size").replace("px", ""));
+        itemFromMainPage.put("product-name", we.findElement(By.cssSelector(".name")).getText());
+
+        //Checks in main page
+        Assert.assertEquals("Постоянная цена не зачеркнута",itemFromMainPage.get("regular-price-tag"),"s");
+        Assert.assertEquals("Постоянная цена отличается по цвету от заданной",itemFromMainPage.get("regular-price-color"),"rgba(119, 119, 119, 1)");
+        Assert.assertEquals("Акционная цена не жирная",itemFromMainPage.get("campaign-price-tag"),"strong");
+        Assert.assertEquals("Акционная цена отличается по цвету от заданной",itemFromMainPage.get("campaign-price-color"),"rgba(204, 0, 0, 1)");
+        Assert.assertTrue("Акционная цена не больше постоянной", Float.parseFloat(itemFromMainPage.get("regular-price-font-size")) < Float.parseFloat(itemFromMainPage.get("campaign-price-font-size")));
+
+
+        driver.findElement(By.cssSelector("div#box-campaigns li:first-child")).click();
+
+        Map<String,String> itemFromProductPage = new HashMap<>();
+
+        itemFromProductPage.put("regular-price-tag", driver.findElement(By.cssSelector("div.price-wrapper .regular-price")).getTagName());
+        itemFromProductPage.put("regular-price", driver.findElement(By.cssSelector("div.price-wrapper .regular-price")).getText());
+        itemFromProductPage.put("regular-price-color", driver.findElement(By.cssSelector("div.price-wrapper .regular-price")).getCssValue("color"));
+        itemFromProductPage.put("regular-price-font-size", driver.findElement(By.cssSelector("div.price-wrapper .regular-price")).getCssValue("font-size").replace("px",""));
+        itemFromProductPage.put("campaign-price-tag", driver.findElement(By.cssSelector("div.price-wrapper .campaign-price")).getTagName());
+        itemFromProductPage.put("campaign-price", driver.findElement(By.cssSelector("div.price-wrapper .campaign-price")).getText());
+        itemFromProductPage.put("campaign-price-color", driver.findElement(By.cssSelector("div.price-wrapper .campaign-price")).getCssValue("color"));
+        itemFromProductPage.put("campaign-price-font-size", driver.findElement(By.cssSelector("div.price-wrapper .campaign-price")).getCssValue("font-size").replace("px", ""));
+        itemFromProductPage.put("product-name", driver.findElement(By.cssSelector("h1.title")).getText());
+
+        //Checks in product's page
+        Assert.assertEquals("Постоянная цена не зачеркнута",itemFromProductPage.get("regular-price-tag"),"s");
+        Assert.assertEquals("Постоянная цена отличается по цвету от заданной",itemFromProductPage.get("regular-price-color"),"rgba(102, 102, 102, 1)");
+        Assert.assertEquals("Акционная цена не жирная",itemFromProductPage.get("campaign-price-tag"),"strong");
+        Assert.assertEquals("Акционная цена отличается по цвету от заданной",itemFromProductPage.get("campaign-price-color"),"rgba(204, 0, 0, 1)");
+        Assert.assertTrue("Акционная цена не больше постоянной", Float.parseFloat(itemFromProductPage.get("regular-price-font-size")) < Float.parseFloat(itemFromProductPage.get("campaign-price-font-size")));
+
+        Assert.assertEquals("Открыта страница не требуемого товара либо некорректное имя товара",itemFromMainPage.get("product-name"),itemFromProductPage.get("product-name"));
+
+        Assert.assertEquals("Наименования товара не совпадают",itemFromMainPage.get("product-name"),itemFromProductPage.get("product-name"));
+        Assert.assertEquals("Постоянные цены товара не совпадают",itemFromMainPage.get("regular-price"),itemFromProductPage.get("regular-price"));
+        Assert.assertEquals("Акционные цены товара не совпадают",itemFromMainPage.get("campaign-price"),itemFromProductPage.get("campaign-price"));
+
 
     }
 
