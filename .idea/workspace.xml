@@ -46,13 +46,13 @@
       <file leaf-file-name="First_homework.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.30619267" vertical-offset="4007" max-vertical-offset="4879">
-              <caret line="220" column="35" selection-start-line="220" selection-start-column="16" selection-end-line="220" selection-end-column="35" />
+            <state vertical-scroll-proportion="1.0" vertical-offset="5046" max-vertical-offset="6001">
+              <caret line="330" column="72" selection-start-line="330" selection-start-column="72" selection-end-line="330" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6224#6232#0" expanded="true" />
-                <element signature="e#14747#14748#0" expanded="true" />
-                <element signature="e#14775#14776#0" expanded="true" />
+                <element signature="e#6472#6480#0" expanded="true" />
+                <element signature="e#18068#18069#0" expanded="true" />
+                <element signature="e#18096#18097#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,7 +150,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="66" />
+    <option name="x" value="-1928" />
     <option name="y" value="-8" />
     <option name="width" value="1862" />
     <option name="height" value="1096" />
@@ -230,7 +230,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/MosenergoWeb" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -246,36 +246,7 @@
       <recent name="C:\Users\VSKryukov\Documents\GitHub\selenium_homework\seleniumLess\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.First_homework.checkProductsStyles">
-    <configuration default="false" name="First_homework.TestClickAllLinks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="seleniumLess" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="First_homework" />
-      <option name="METHOD_NAME" value="TestClickAllLinks" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.First_homework.checkRegistrationNewUser">
     <configuration default="false" name="First_homework.checkStickersMainPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="seleniumLess" />
@@ -369,6 +340,35 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="First_homework" />
       <option name="METHOD_NAME" value="checkProductsStyles" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="First_homework.checkRegistrationNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="seleniumLess" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="First_homework" />
+      <option name="METHOD_NAME" value="checkRegistrationNewUser" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -633,19 +633,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.First_homework.TestClickAllLinks" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.First_homework.checkStickersMainPage" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.First_homework.checkSortCountriesAndZone" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.First_homework" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.First_homework.checkProductsStyles" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.First_homework.checkStickersMainPage" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.First_homework.checkSortCountriesAndZone" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.First_homework" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.First_homework.checkProductsStyles" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.First_homework.checkRegistrationNewUser" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.First_homework.checkProductsStyles" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.First_homework" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.First_homework.checkSortCountriesAndZone" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.First_homework.checkStickersMainPage" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.First_homework.TestClickAllLinks" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.First_homework.checkRegistrationNewUser" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.First_homework.checkProductsStyles" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.First_homework" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.First_homework.checkSortCountriesAndZone" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.First_homework.checkStickersMainPage" />
       </list>
     </recent_temporary>
   </component>
@@ -662,15 +662,15 @@
       <workItem from="1479711501593" duration="1589000" />
       <workItem from="1479972930265" duration="23057000" />
       <workItem from="1480326463798" duration="14889000" />
-      <workItem from="1480358072589" duration="14030000" />
+      <workItem from="1480358072589" duration="36779000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59173000" />
+    <option name="totallyTimeSpent" value="81922000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="-8" width="1862" height="1096" extended-state="6" />
+    <frame x="-1928" y="-8" width="1862" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -684,7 +684,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33684796" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.02768903" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.02768903" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17258601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -694,7 +694,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35569754" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35569754" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -723,30 +723,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>67</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>117</line>
+          <line>124</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>244</line>
+          <line>327</line>
           <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>259</line>
-          <properties />
-          <option name="timeStamp" value="20" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="21" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -769,9 +763,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6224#6232#0" expanded="true" />
-            <element signature="e#14747#14748#0" expanded="true" />
-            <element signature="e#14775#14776#0" expanded="true" />
+            <element signature="e#6472#6480#0" expanded="true" />
+            <element signature="e#18068#18069#0" expanded="true" />
+            <element signature="e#18096#18097#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -790,9 +784,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6224#6232#0" expanded="true" />
-            <element signature="e#14747#14748#0" expanded="true" />
-            <element signature="e#14775#14776#0" expanded="true" />
+            <element signature="e#6472#6480#0" expanded="true" />
+            <element signature="e#18068#18069#0" expanded="true" />
+            <element signature="e#18096#18097#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -811,9 +805,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6224#6232#0" expanded="true" />
-            <element signature="e#14747#14748#0" expanded="true" />
-            <element signature="e#14775#14776#0" expanded="true" />
+            <element signature="e#6472#6480#0" expanded="true" />
+            <element signature="e#18068#18069#0" expanded="true" />
+            <element signature="e#18096#18097#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -832,9 +826,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6224#6232#0" expanded="true" />
-            <element signature="e#14747#14748#0" expanded="true" />
-            <element signature="e#14775#14776#0" expanded="true" />
+            <element signature="e#6472#6480#0" expanded="true" />
+            <element signature="e#18068#18069#0" expanded="true" />
+            <element signature="e#18096#18097#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -853,9 +847,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6224#6232#0" expanded="true" />
-            <element signature="e#14747#14748#0" expanded="true" />
-            <element signature="e#14775#14776#0" expanded="true" />
+            <element signature="e#6472#6480#0" expanded="true" />
+            <element signature="e#18068#18069#0" expanded="true" />
+            <element signature="e#18096#18097#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -892,13 +886,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.30619267" vertical-offset="4007" max-vertical-offset="4879">
-          <caret line="220" column="35" selection-start-line="220" selection-start-column="16" selection-end-line="220" selection-end-column="35" />
+        <state vertical-scroll-proportion="1.0" vertical-offset="5046" max-vertical-offset="6001">
+          <caret line="330" column="72" selection-start-line="330" selection-start-column="72" selection-end-line="330" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6224#6232#0" expanded="true" />
-            <element signature="e#14747#14748#0" expanded="true" />
-            <element signature="e#14775#14776#0" expanded="true" />
+            <element signature="e#6472#6480#0" expanded="true" />
+            <element signature="e#18068#18069#0" expanded="true" />
+            <element signature="e#18096#18097#0" expanded="true" />
           </folding>
         </state>
       </provider>

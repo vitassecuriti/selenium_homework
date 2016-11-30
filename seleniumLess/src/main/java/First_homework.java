@@ -6,9 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+
+import static java.lang.System.out;
+import static java.lang.System.setProperty;
 
 /**
  * Created by VSKryukov on 16.11.2016.
@@ -16,15 +21,17 @@ import java.util.concurrent.TimeUnit;
 public class First_homework {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     @Before
     public void setUp(){
         String path = "./src/main/resources/driver/chrome/chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", path);
+        setProperty("webdriver.chrome.driver", path);
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
 //        String path = "C:\\selenium_homework\\seleniumLess\\src\\main\\resources\\driver.firefox\\geckodriver.exe";
 //        System.setProperty("webdriver.gecko.driver", path);
 //        DesiredCapabilities dcap = new DesiredCapabilities();
@@ -66,10 +73,10 @@ public class First_homework {
         //Click TopItemMenu
         for (int i = 1; i <= leftListTopLink.size(); i++){
        //  WebElement w = driver.findElement(By.xpath("//*[@id=\"app-\"]["+ i +"]"));
-            System.out.println(" - NumberItemMenuTop - " + i);
+            out.println(" - NumberItemMenuTop - " + i);
             WebElement w = driver.findElement(By.cssSelector("#app-:nth-of-type(" + i + ")"));
             //*[@id="app-"]/a  //*[@id="app-"]
-            System.out.println(" - CliCK OnTOpMenuItemNumber - " + i);
+            out.println(" - CliCK OnTOpMenuItemNumber - " + i);
             w.click();
 
             //Check h1 exists
@@ -185,7 +192,7 @@ public class First_homework {
                 geoZoneName.add(str);
             }
 
-            System.out.println("Сортировка зонн - " + codeCountries.get(i));
+            out.println("Сортировка зонн - " + codeCountries.get(i));
             //check sort list geoZone
             List<String> sortedListZones = new ArrayList<>();
             sortedListZones.addAll(geoZoneName);
@@ -268,7 +275,66 @@ public class First_homework {
         Assert.assertEquals("Наименования товара не совпадают",itemFromMainPage.get("product-name"),itemFromProductPage.get("product-name"));
         Assert.assertEquals("Постоянные цены товара не совпадают",itemFromMainPage.get("regular-price"),itemFromProductPage.get("regular-price"));
         Assert.assertEquals("Акционные цены товара не совпадают",itemFromMainPage.get("campaign-price"),itemFromProductPage.get("campaign-price"));
+    }
 
+    @Test
+    public void checkRegistrationNewUser(){
+
+        driver.get("http://localhost/litecard/en/");
+
+        driver.findElement(By.cssSelector("div#box-account-login a[href $= 'create_account']")).click();
+
+
+
+        String strData = String.valueOf(Math.round(Math.random() * 10000000000d) );
+        String firstName = "NewUserFirstName " + strData;
+        String lastName = "NewUserLastName " + strData;
+        String address1 = "NewUserAddress1 " + strData;
+        String postCode = "T7S 1R3";
+        String country = "Canada";
+        String city = "Whitecourt";
+        String zoneCode = "Ontario";
+        String eMail = "test@" + strData + "test.ru";
+        String tel = "+7"+strData;
+        String pass = "12345asdf123";
+
+        driver.findElement(By.cssSelector("input[name='firstname']")).sendKeys(firstName);
+        driver.findElement(By.cssSelector("input[name='lastname']")).sendKeys(lastName);
+        driver.findElement(By.cssSelector("input[name='address1']")).sendKeys(address1);
+        driver.findElement(By.cssSelector("input[name='postcode']")).sendKeys(postCode);
+        driver.findElement(By.cssSelector("input[name='city']")).sendKeys(city);
+        selectOption(By.cssSelector(".select2-container"), country);
+        selectOption(By.cssSelector(".select2-container"), country);
+
+
+        driver.findElement(By.cssSelector("input[name='email']")).sendKeys(eMail);
+        driver.findElement(By.cssSelector("input[name='phone']")).sendKeys(tel);
+        driver.findElement(By.cssSelector("input[name='password']")).sendKeys(pass);
+        driver.findElement(By.cssSelector("input[name='confirmed_password']")).sendKeys(pass);
+        driver.findElement(By.cssSelector("button[name='create_account']")).click();
+
+        System.out.println("Заполнили все");
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div#box-account a[href $= 'logout']")))).click();
+
+        System.out.println(" logout");
+
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("input[name='email']")))).sendKeys(eMail);
+        driver.findElement(By.cssSelector("input[name='password']")).sendKeys(pass);
+        driver.findElement(By.cssSelector("button[name='login']")).click();
+
+        System.out.println("Enter data and login");
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div#box-account a[href $= 'logout']")))).click();
+        System.out.println(" logout");
+        out.println("eMail   - "  +  eMail + " :  pass - " + pass);
+    }
+
+    public void selectOption(By s2ConteinerLocator, String optionText) {
+
+        driver.findElement(s2ConteinerLocator).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".select2-dropdown"))));
+
+        driver.findElement(By.cssSelector(".select2-dropdown input")).sendKeys(optionText);
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector(".select2-results .select2-results__option")))).click();
 
     }
 
