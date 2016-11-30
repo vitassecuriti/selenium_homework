@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.*;
@@ -304,7 +305,9 @@ public class First_homework {
         driver.findElement(By.cssSelector("input[name='postcode']")).sendKeys(postCode);
         driver.findElement(By.cssSelector("input[name='city']")).sendKeys(city);
         selectOption(By.cssSelector(".select2-container"), country);
-        selectOption(By.cssSelector(".select2-container"), country);
+
+        Select zoneCodSelect = new Select(driver.findElement(By.cssSelector("select[name='zone_code']")));
+        zoneCodSelect.selectByVisibleText(zoneCode);
 
 
         driver.findElement(By.cssSelector("input[name='email']")).sendKeys(eMail);
@@ -313,19 +316,19 @@ public class First_homework {
         driver.findElement(By.cssSelector("input[name='confirmed_password']")).sendKeys(pass);
         driver.findElement(By.cssSelector("button[name='create_account']")).click();
 
-        System.out.println("Заполнили все");
+        //System.out.println("Заполнили все");
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div#box-account a[href $= 'logout']")))).click();
 
-        System.out.println(" logout");
+        //System.out.println(" logout");
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("input[name='email']")))).sendKeys(eMail);
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys(pass);
         driver.findElement(By.cssSelector("button[name='login']")).click();
 
-        System.out.println("Enter data and login");
+       // System.out.println("Enter data and login");
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div#box-account a[href $= 'logout']")))).click();
-        System.out.println(" logout");
-        out.println("eMail   - "  +  eMail + " :  pass - " + pass);
+        //System.out.println(" logout");
+        //out.println("eMail   - "  +  eMail + " :  pass - " + pass);
     }
 
     public void selectOption(By s2ConteinerLocator, String optionText) {

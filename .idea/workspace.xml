@@ -46,13 +46,13 @@
       <file leaf-file-name="First_homework.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0" vertical-offset="5046" max-vertical-offset="6001">
-              <caret line="330" column="72" selection-start-line="330" selection-start-column="72" selection-end-line="330" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.122340426" vertical-offset="4708" max-vertical-offset="6052">
+              <caret line="281" column="40" selection-start-line="281" selection-start-column="16" selection-end-line="281" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6472#6480#0" expanded="true" />
-                <element signature="e#18068#18069#0" expanded="true" />
-                <element signature="e#18096#18097#0" expanded="true" />
+                <element signature="e#6518#6526#0" expanded="true" />
+                <element signature="e#18216#18217#0" expanded="true" />
+                <element signature="e#18244#18245#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -662,12 +662,12 @@
       <workItem from="1479711501593" duration="1589000" />
       <workItem from="1479972930265" duration="23057000" />
       <workItem from="1480326463798" duration="14889000" />
-      <workItem from="1480358072589" duration="36779000" />
+      <workItem from="1480358072589" duration="37943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81922000" />
+    <option name="totallyTimeSpent" value="83086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1862" height="1096" extended-state="6" />
@@ -723,24 +723,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>74</line>
+          <line>75</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>124</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
-          <line>327</line>
+          <line>330</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java</url>
+          <line>312</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -763,9 +769,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6472#6480#0" expanded="true" />
-            <element signature="e#18068#18069#0" expanded="true" />
-            <element signature="e#18096#18097#0" expanded="true" />
+            <element signature="e#6518#6526#0" expanded="true" />
+            <element signature="e#18216#18217#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,9 +790,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6472#6480#0" expanded="true" />
-            <element signature="e#18068#18069#0" expanded="true" />
-            <element signature="e#18096#18097#0" expanded="true" />
+            <element signature="e#6518#6526#0" expanded="true" />
+            <element signature="e#18216#18217#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -805,9 +811,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6472#6480#0" expanded="true" />
-            <element signature="e#18068#18069#0" expanded="true" />
-            <element signature="e#18096#18097#0" expanded="true" />
+            <element signature="e#6518#6526#0" expanded="true" />
+            <element signature="e#18216#18217#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -826,9 +832,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6472#6480#0" expanded="true" />
-            <element signature="e#18068#18069#0" expanded="true" />
-            <element signature="e#18096#18097#0" expanded="true" />
+            <element signature="e#6518#6526#0" expanded="true" />
+            <element signature="e#18216#18217#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -847,9 +853,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6472#6480#0" expanded="true" />
-            <element signature="e#18068#18069#0" expanded="true" />
-            <element signature="e#18096#18097#0" expanded="true" />
+            <element signature="e#6518#6526#0" expanded="true" />
+            <element signature="e#18216#18217#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -886,13 +892,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/seleniumLess/src/main/java/First_homework.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0" vertical-offset="5046" max-vertical-offset="6001">
-          <caret line="330" column="72" selection-start-line="330" selection-start-column="72" selection-end-line="330" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.122340426" vertical-offset="4708" max-vertical-offset="6052">
+          <caret line="281" column="40" selection-start-line="281" selection-start-column="16" selection-end-line="281" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6472#6480#0" expanded="true" />
-            <element signature="e#18068#18069#0" expanded="true" />
-            <element signature="e#18096#18097#0" expanded="true" />
+            <element signature="e#6518#6526#0" expanded="true" />
+            <element signature="e#18216#18217#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>
