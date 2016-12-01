@@ -3,6 +3,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -285,8 +287,6 @@ public class First_homework {
 
         driver.findElement(By.cssSelector("div#box-account-login a[href $= 'create_account']")).click();
 
-
-
         String strData = String.valueOf(Math.round(Math.random() * 10000000000d) );
         String firstName = "NewUserFirstName " + strData;
         String lastName = "NewUserLastName " + strData;
@@ -340,6 +340,88 @@ public class First_homework {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector(".select2-results .select2-results__option")))).click();
 
     }
+
+
+    @Test
+    public void checkAddNewproduct() {
+
+        driver.get("http://localhost/litecard/admin/");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+
+        driver.get("http://localhost/litecard/admin/?app=catalog&doc=catalog");
+
+        String newProductName = "newProductName";
+        String newProductCode = "newProductCode";
+
+        driver.findElement(By.cssSelector("div a[href $= 'edit_product']")).click();
+
+        //Status
+        checkRadioButton(By.cssSelector("div#tab-general input[name='status'][value='1']"));
+        //Name
+        driver.findElement(By.cssSelector("span.input-wrapper input[name='name[en]']")).sendKeys(newProductName);
+        //Code
+        driver.findElement(By.cssSelector("input[name='code']")).sendKeys(newProductCode);
+        //Categories
+        for (int i=0; i< driver.findElements(By.cssSelector("div.input-wrapper input[name='categories[]']")).size(); i++){
+            checkRadioButton(By.cssSelector("input[name='categories[]'][value='" + i + "']"));
+        }
+        //Default Category
+        simpeSelectOption(By.cssSelector("select[name='default_category_id']"), "Subcategory");
+        //Product Groups
+        for (int i=1; i<= driver.findElements(By.cssSelector("div.input-wrapper input[name='product_groups[]']")).size(); i++){
+            checkRadioButton(By.cssSelector("input[name='product_groups[]'][value='1-" + i + "']"));
+        }
+        //Quantity
+        WebElement element = driver.findElement(By.cssSelector("input[name='quantity']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', 5.55)", element);
+        //Sold Out Status
+        simpeSelectOption(By.cssSelector("select[name='sold_out_status_id']"), "Temporary sold out");
+        //Upload Images
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("pictures/test.png").getFile());
+        driver.findElement(By.cssSelector("input[name='new_images[]']")).sendKeys(file.getAbsolutePath());
+        //Date Valid From
+        driver.findElement(By.cssSelector("input[name='date_valid_from']")).sendKeys("01.12.2017");
+        //Date Valid To
+        driver.findElement(By.cssSelector("input[name='date_valid_to']")).sendKeys("01.01.2018");
+
+        //Tab Information
+        driver.findElement(By.cssSelector("div.tabs a[href='#tab-information']")).click();
+        //Manufacturer
+        simpeSelectOption(By.cssSelector("select[name='manufacturer_id']"), "ForTestHomework12");
+        //Supplier
+        simpeSelectOption(By.cssSelector("select[name='supplier_id']"), "ForTestHomework12");
+        //Keywords
+        driver.findElement(By.cssSelector("input[name='keywords']")).sendKeys("ForTestHomework12");
+        //Short Description
+        driver.findElement(By.cssSelector("input[name='short_description[en]']")).sendKeys("ForTestHomework12");
+        //Description
+        driver.findElement(By.cssSelector("div.trumbowyg-editor")).sendKeys("ForTestHomework12");
+        //Head Title
+        driver.findElement(By.cssSelector("input[name='head_title[en]']")).sendKeys("ForTestHomework12");
+        //Meta Description
+        driver.findElement(By.cssSelector("input[name='meta_description[en]']")).sendKeys("ForTestHomework12");
+
+        System.out.println("sdfsfsdf");
+
+
+    }
+
+    public void checkRadioButton(By locator){
+        WebElement checkedElement = driver.findElement(locator);
+        String checked = checkedElement.getAttribute("checked");
+        if (checked == null){
+            checkedElement.click();
+        }
+    }
+
+    public void simpeSelectOption(By locator, String option){
+        Select selectCategory = new Select(driver.findElement(locator));
+        selectCategory.selectByVisibleText(option);
+    }
+
 
 
     @After
