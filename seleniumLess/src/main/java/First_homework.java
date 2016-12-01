@@ -352,8 +352,11 @@ public class First_homework {
 
         driver.get("http://localhost/litecard/admin/?app=catalog&doc=catalog");
 
-        String newProductName = "newProductName";
-        String newProductCode = "newProductCode";
+        String rndStrID = String.valueOf(Math.round(Math.random() * 1000d) );
+        String newProductName = "newProductName_" + rndStrID;
+        String newProductCode = "newProductCode_" + rndStrID;
+        String subcategory = "Subcategory";
+        String sold_out_status = "Temporary sold out";
 
         driver.findElement(By.cssSelector("div a[href $= 'edit_product']")).click();
 
@@ -368,31 +371,31 @@ public class First_homework {
             checkRadioButton(By.cssSelector("input[name='categories[]'][value='" + i + "']"));
         }
         //Default Category
-        simpeSelectOption(By.cssSelector("select[name='default_category_id']"), "Subcategory");
+        simpeSelectOption(By.cssSelector("select[name='default_category_id']"), subcategory);
         //Product Groups
         for (int i=1; i<= driver.findElements(By.cssSelector("div.input-wrapper input[name='product_groups[]']")).size(); i++){
             checkRadioButton(By.cssSelector("input[name='product_groups[]'][value='1-" + i + "']"));
         }
         //Quantity
-        WebElement element = driver.findElement(By.cssSelector("input[name='quantity']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', 5.55)", element);
+        WebElement quantity = driver.findElement(By.cssSelector("input[name='quantity']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', 5.55)", quantity);
         //Sold Out Status
-        simpeSelectOption(By.cssSelector("select[name='sold_out_status_id']"), "Temporary sold out");
+        simpeSelectOption(By.cssSelector("select[name='sold_out_status_id']"), sold_out_status);
         //Upload Images
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("pictures/test.png").getFile());
         driver.findElement(By.cssSelector("input[name='new_images[]']")).sendKeys(file.getAbsolutePath());
         //Date Valid From
-        driver.findElement(By.cssSelector("input[name='date_valid_from']")).sendKeys("01.12.2017");
+        driver.findElement(By.cssSelector("input[name='date_valid_from']")).sendKeys("01.12.2016");
         //Date Valid To
-        driver.findElement(By.cssSelector("input[name='date_valid_to']")).sendKeys("01.01.2018");
+        driver.findElement(By.cssSelector("input[name='date_valid_to']")).sendKeys("01.01.2017");
 
         //Tab Information
         driver.findElement(By.cssSelector("div.tabs a[href='#tab-information']")).click();
         //Manufacturer
-        simpeSelectOption(By.cssSelector("select[name='manufacturer_id']"), "ForTestHomework12");
+        simpeSelectOption(By.cssSelector("select[name='manufacturer_id']"), "ACME Corp.");
         //Supplier
-        simpeSelectOption(By.cssSelector("select[name='supplier_id']"), "ForTestHomework12");
+       // simpeSelectOption(By.cssSelector("select[name='supplier_id']"), "ForTestHomework12");
         //Keywords
         driver.findElement(By.cssSelector("input[name='keywords']")).sendKeys("ForTestHomework12");
         //Short Description
@@ -404,8 +407,31 @@ public class First_homework {
         //Meta Description
         driver.findElement(By.cssSelector("input[name='meta_description[en]']")).sendKeys("ForTestHomework12");
 
-        System.out.println("sdfsfsdf");
 
+        //Tab Prices
+        driver.findElement(By.cssSelector("div.tabs a[href='#tab-prices']")).click();
+        //Purchase Price
+        WebElement purchase_price = driver.findElement(By.cssSelector("input[name='purchase_price']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', 25.55)", purchase_price);
+        simpeSelectOption(By.cssSelector("select[name='purchase_price_currency_code']"), "Euros");
+        //Save
+        driver.findElement(By.cssSelector("button[name='save']")).click();
+
+
+        List<WebElement> products = driver.findElements(By.cssSelector("tr.row"));
+        boolean IsExists = false;
+
+        for (int i=2; i<=products.size()+1;i++){
+
+            WebElement productElem = driver.findElement(By.cssSelector("tr.row:nth-of-type(" + i +") td:nth-of-type(3)"));
+            String str = productElem.getAttribute("textContent").trim();
+            if (str.equals(newProductName)){
+                IsExists = true;
+            }
+
+        }
+
+        Assert.assertTrue("Новый продукт не найден в списке продуктов", IsExists);
 
     }
 
