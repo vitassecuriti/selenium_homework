@@ -449,6 +449,69 @@ public class First_homework {
     }
 
 
+    @Test
+    public void checkAddDeleteFromCart(){
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.get("http://localhost/litecard/en/");
+
+       // driver.findElement(By.cssSelector("div#box-most-popular li:first-child")).click();
+
+        //counter
+        int counter = Integer.parseInt(driver.findElement(By.cssSelector("span.quantity")).getAttribute("textContent"));
+        Assert.assertTrue("Корзина не пуста в начале теста!", counter==0 );
+
+        //add To cart
+        wait = new WebDriverWait(driver, 3);
+        for (int i=1;i<=3;i++){
+            driver.findElement(By.cssSelector("div#box-most-popular li:first-child")).click();
+            WebElement counterElem = driver.findElement(By.cssSelector("div#cart span.quantity"));
+
+            //if need to select size
+            List<WebElement> selectSize = driver.findElements(By.cssSelector("select[name='options[Size]']"));
+            if (selectSize.size()>0){
+                Select select = new Select(driver.findElement(By.cssSelector("select[name='options[Size]']")));
+                select.selectByIndex(1);
+            }
+
+            WebElement addProductButton = driver.findElement(By.cssSelector("button[name='add_cart_product']"));
+            addProductButton.click();
+            wait.until(ExpectedConditions.attributeContains(counterElem, "textContent", String.valueOf(i)));
+            driver.findElement(By.cssSelector("nav#site-menu li.general-0")).click();
+            wait.until(ExpectedConditions.stalenessOf(addProductButton));
+        }
+
+        //enter to cart
+        driver.findElement(By.cssSelector("a.link[href $= 'checkout']")).click();
+
+        //delete from cart and checks
+        List<WebElement> shortcuts = driver.findElements(By.cssSelector("ul.shortcuts li.shortcut"));
+        for (int i=1; i<=shortcuts.size(); i++) {
+            if (i!=shortcuts.size()) {
+                driver.findElement(By.cssSelector("ul.shortcuts li.shortcut:first-child")).click();
+            }
+            String ItemName = driver.findElement(By.cssSelector("ul.items li:first-child div a")).getAttribute("textContent");
+            WebElement productSumCheck = getElementByCellText(By.cssSelector("table.dataTable.rounded-corners td.item"), ItemName);
+
+            if (i!=shortcuts.size()) {
+                driver.findElement(By.cssSelector("ul.shortcuts li.shortcut:first-child")).click();
+            }
+            driver.findElement(By.cssSelector("button[name='remove_cart_item']")).click();
+            wait.until(ExpectedConditions.stalenessOf(productSumCheck));
+
+            Assert.assertTrue("Товар не удален из корзины", getElementByCellText(By.cssSelector("table.dataTable.rounded-corners td.item"), ItemName) == null);
+        }
+    }
+
+    public WebElement getElementByCellText(By locator, String text){
+        WebElement element = null;
+        List<WebElement> elements = driver.findElements(locator);
+        for (WebElement cell : elements ){
+            if (cell.getText().equals(text)){
+                element = cell;
+            }
+        }
+        return element;
+    }
 
     @After
     public void tear_down(){
