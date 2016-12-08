@@ -2,10 +2,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -14,8 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import static java.lang.System.out;
+import static java.lang.System.setOut;
 import static java.lang.System.setProperty;
 
 /**
@@ -512,6 +511,50 @@ public class First_homework {
         }
         return element;
     }
+
+    @Test
+    public void checkWorkWindows(){
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.get("http://localhost/litecard/admin/");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+
+        driver.get("http://localhost/litecard/admin/?app=countries&doc=countries");
+        driver.findElement(By.cssSelector("a.button[href $= 'edit_country']")).click();
+
+        String windowHandle = driver.getWindowHandle();
+        for (int i=0; i<driver.findElements(By.cssSelector("form i.fa.fa-external-link")).size();i++) {
+            WebElement webElement = driver.findElements(By.cssSelector("form i.fa.fa-external-link")).get(i);
+            wait.until(ExpectedConditions.visibilityOf(webElement));
+            webElement.click();
+
+            String s = driver.getWindowHandles().stream().collect(Collectors.toList()).get(1);
+
+            driver.switchTo().window(s);
+            List<WebElement> listH1 = null;
+            String curUrl = driver.getCurrentUrl();
+            if (curUrl.contains("en.wikipedia.org")){
+                listH1 = driver.findElements(By.cssSelector("h1#firstHeading"));
+            } else if (curUrl.contains("informatica.com")){
+                listH1 = driver.findElements(By.cssSelector("div.marketo-formContent.narrow > h1"));
+            }
+            Assert.assertTrue("Искомое окно не открыто, либо открыто не искомое окно",listH1.size()>0);
+            driver.close();
+            wait.until(ExpectedConditions.numberOfWindowsToBe(1));
+            driver.switchTo().window(windowHandle);
+            WebElement element = driver.findElement(By.cssSelector("input[name='name']"));
+            element.click();
+            element.clear();
+            element.sendKeys(String.valueOf(i));
+            element.sendKeys(Keys.ENTER);
+            wait.until(ExpectedConditions.attributeToBeNotEmpty(driver.findElement(By.cssSelector("input[name='name']")),"value"));
+            String value = driver.findElement(By.cssSelector("input[name='name']")).getAttribute("value");
+            Assert.assertTrue("", driver.findElement(By.cssSelector("input[name='name']")).getAttribute("value").equals(String.valueOf(i)));
+        }
+    }
+
+
 
     @After
     public void tear_down(){
