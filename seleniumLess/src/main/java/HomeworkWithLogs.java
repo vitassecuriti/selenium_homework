@@ -49,14 +49,10 @@ public class HomeworkWithLogs {
        List<WebElement> elements = driver.findElements(By.cssSelector("tr.row td:nth-of-type(3)"));
        for (int i = 2; i <= elements.size() + 1; i++) {
            driver.get("http://localhost/litecard/admin/?app=catalog&doc=catalog&category_id=1");
-           List<LogEntry> browser;
            if ((driver.findElements(By.cssSelector("tr.row:nth-of-type(" + i + ") td:nth-of-type(3) i"))).size() == 0){
                driver.findElement(By.cssSelector("tr.row:nth-of-type(" + i + ") td:nth-of-type(3) a")).click();
-
                wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("h1"))));
-
-               browser = driver.manage().logs().get("browser").getAll();
-
+               List<LogEntry> browser = driver.manage().logs().get("browser").getAll();
                browser.forEach(logEntry -> System.out.println(logEntry.toString()));
                Assert.assertTrue("Логи браузера не пусты", browser.size()==0);
 
